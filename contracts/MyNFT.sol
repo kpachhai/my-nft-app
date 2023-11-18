@@ -15,7 +15,7 @@ contract MyNFT is ERC721, ERC721Enumerable, Ownable {
 
     // Function to mint to a specific recipient
     function mintNFT(address recipient) public {
-        require(balanceOf(msg.sender) < 5, "Max 5 NFTs per address");
+        require(balanceOf(recipient) < 5, "Max 5 NFTs per address");
         uint256 tokenId = _nextTokenId++;
         _safeMint(recipient, tokenId);
     }
